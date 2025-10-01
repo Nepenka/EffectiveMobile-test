@@ -12,6 +12,7 @@ import UIKit
 
 protocol ListPresenterProtocool: AnyObject {
     func viewDidLoad()
+    func toggleTask(_ task: Task)
 }
 
 final class ListPresenter: ListPresenterProtocool {
@@ -21,6 +22,10 @@ final class ListPresenter: ListPresenterProtocool {
     
     func viewDidLoad() {
         interactor?.fetchTasks()
+    }
+    
+    func toggleTask(_ task: Task) {
+        interactor?.updateTask(task)
     }
 }
 
