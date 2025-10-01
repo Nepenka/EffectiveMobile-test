@@ -15,8 +15,9 @@ struct Todo: Decodable {
 
 struct Task: Decodable {
     let id: Int
-    let todo: String
-    let description: String?
-    let completed: Bool
+    var todo: String
+    var description: String?
+    var completed: Bool
+    var date: Date?
     let userId: Int
 }
