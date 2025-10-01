@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3606D74A2E8C14F100293EF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3606D7492E8C14F100293EF5 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3606D7302E8C14A700293EF5 /* EffectiveMobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EffectiveMobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -14,7 +18,7 @@
 		3606D7422E8C14A800293EF5 /* Exceptions for "EffectiveMobile-test" folder in "EffectiveMobile-test" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 3606D72F2E8C14A700293EF5 /* EffectiveMobile-test */;
 		};
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3606D74A2E8C14F100293EF5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "EffectiveMobile-test";
 			packageProductDependencies = (
+				3606D7492E8C14F100293EF5 /* SnapKit */,
 			);
 			productName = "EffectiveMobile-test";
 			productReference = 3606D7302E8C14A700293EF5 /* EffectiveMobile-test.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 3606D7272E8C14A700293EF5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3606D7482E8C14F100293EF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3606D7312E8C14A700293EF5 /* Products */;
 			projectDirPath = "";
@@ -147,10 +156,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B5GYW8VT22;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "EffectiveMobile-test/Info.plist";
+				INFOPLIST_FILE = "EffectiveMobile-test/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -179,10 +187,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B5GYW8VT22;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "EffectiveMobile-test/Info.plist";
+				INFOPLIST_FILE = "EffectiveMobile-test/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3606D7482E8C14F100293EF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3606D7492E8C14F100293EF5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3606D7482E8C14F100293EF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3606D7282E8C14A700293EF5 /* Project object */;
 }
