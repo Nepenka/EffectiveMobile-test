@@ -11,7 +11,6 @@ import XCTest
 
 final class DetailPresenterTests: XCTestCase {
 
-    // Mock Interactor
     class MockDetailInteractor: DetailInteractorProtocol {
         var createdTask: Task?
         var updatedTask: Task?
