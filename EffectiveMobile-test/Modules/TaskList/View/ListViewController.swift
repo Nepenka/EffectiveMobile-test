@@ -76,7 +76,7 @@ final class ListViewController: UIViewController, ListViewProtocool {
     
     @objc
     func addTaskAction() {
-        print("Добавить задачу")
+        presenter?.didTapAddTask()
     }
     
 }
@@ -115,13 +115,32 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         return 110
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let taskItem = isFilter ? filteredTasks[indexPath.row] : task[indexPath.row]
         
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let edit = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { [weak self] _ in
+                guard let self = self else {return}
+                let taskItem = self.isFilter ? self.filteredTasks[indexPath.row] : self.task[indexPath.row]
+                self.presenter?.didTapEditTask(taskItem)
+            }
+            
+            let share = UIAction(title: "Поделиться", image: UIImage(systemName: "square.and.arrow.up")) { _ in
+                
+                let activityVC = UIActivityViewController(activityItems: [taskItem.todo], applicationActivities: nil)
+                self.present(activityVC, animated: true)
+            }
+            
+            let delete = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+                guard let self = self else {return}
+                let taskItem = self.isFilter ? self.filteredTasks[indexPath.row] : self.task[indexPath.row]
+                
+                self.presenter?.deleteTask(taskItem)
+            }
+            
+            return UIMenu(title: "", children: [edit,share,delete])
+        }
     }
-    
-//    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-//        <#code#>
-//    }
 }
 
 

@@ -13,6 +13,9 @@ import UIKit
 protocol ListPresenterProtocool: AnyObject {
     func viewDidLoad()
     func toggleTask(_ task: Task)
+    func deleteTask(_ task: Task)
+    func didTapAddTask()
+    func didTapEditTask(_ task: Task)
 }
 
 final class ListPresenter: ListPresenterProtocool {
@@ -27,12 +30,29 @@ final class ListPresenter: ListPresenterProtocool {
     func toggleTask(_ task: Task) {
         interactor?.updateTask(task)
     }
+    
+    func deleteTask(_ task: Task) {
+        interactor?.deleteTask(task)
+    }
+    
+    func didTapAddTask() {
+        router?.showDetail(with: nil)
+    }
+    
+    func didTapEditTask(_ task: Task) {
+        router?.showDetail(with: task)
+    }
 }
 
 
 extension ListPresenter: ListInteractorOutputProtocool {
     func didFetchTasks(_ task: [Task]) {
-        view?.showTask(task)
+        var allTask = task
+        if let newTask = task.last {
+            allTask.removeLast()
+            allTask.insert(newTask, at: 0)
+        }
+        view?.showTask(allTask)
     }
     
     func didErrorFetchingTask(_ error: any Error) {

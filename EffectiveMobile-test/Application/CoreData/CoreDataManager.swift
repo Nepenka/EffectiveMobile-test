@@ -93,4 +93,19 @@ class CoreDataManager {
             print("Failed to update task: \(error)")
         }
     }
+    
+    func deleteTask(_ task: Task) {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "CDTask")
+        request.predicate = NSPredicate(format: "id == %d", task.id)
+        
+        do {
+            let objects = try context.fetch(request)
+            for obj in objects {
+                context.delete(obj)
+            }
+            try context.save()
+        }catch{
+            print("Не удалось удалить: \(error.localizedDescription)")
+        }
+    }
 }

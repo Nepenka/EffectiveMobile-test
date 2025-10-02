@@ -13,6 +13,7 @@ import UIKit
 protocol ListInteractorProtocool: AnyObject {
     func fetchTasks()
     func updateTask(_ task: Task)
+    func deleteTask(_ task: Task)
 }
 
 protocol ListInteractorOutputProtocool: AnyObject {
@@ -50,6 +51,12 @@ final class ListInteractor: ListInteractorProtocool {
     
     func updateTask(_ task: Task) {
         CoreDataManager.dataManager.updateTask(task)
+    }
+    
+    func deleteTask(_ task: Task) {
+        CoreDataManager.dataManager.deleteTask(task)
+        let tasks = CoreDataManager.dataManager.fetchTasks()
+        presenter?.didFetchTasks(tasks)
     }
 }
 
