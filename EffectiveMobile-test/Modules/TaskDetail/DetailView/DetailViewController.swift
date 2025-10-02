@@ -62,6 +62,7 @@ final class DetailViewController: UIViewController, DetailViewProtocol {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,target: self,action: #selector(saveAction))
         presenter?.viewDidLoad()
         setupSubviews()
+        setupKeyboardDismissRecognizer()
     }
     
     func setupSubviews() {
