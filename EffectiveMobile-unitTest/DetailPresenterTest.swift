@@ -56,7 +56,7 @@ final class DetailPresenterTests: XCTestCase {
         XCTAssertNotNil(mockInteractor.updatedTask)
         XCTAssertEqual(mockInteractor.updatedTask?.todo, "Updated Title")
         XCTAssertEqual(mockInteractor.updatedTask?.description, "Updated Desc")
-        XCTAssertNotEqual(mockInteractor.updatedTask?.date, existingTask.date) // дата обновилась
+        XCTAssertNotEqual(mockInteractor.updatedTask?.date, existingTask.date) 
     }
     
     func testEmptyFieldsUseDefaultValues() {
