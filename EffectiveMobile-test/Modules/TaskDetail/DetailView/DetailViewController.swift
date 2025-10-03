@@ -96,7 +96,7 @@ final class DetailViewController: UIViewController, DetailViewProtocol {
         descriptionField.text = task.description
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/YY"
-            detailDateLabel.text = formatter.string(from: task.date ?? Date())
+        detailDateLabel.text = formatter.string(from: task.date ?? Date())
     }
     
     @objc func saveAction() {

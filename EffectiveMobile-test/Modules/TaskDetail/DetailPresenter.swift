@@ -33,6 +33,9 @@ final class DetailPresenter: DetailPresenterProtocol {
     func viewDidLoad() {
         if let task = task {
             view?.showTask(task)
+        } else {
+            let newTask = Task(id: -1, todo: "",description: "" ,completed: false,date: Date() ,userId: 0)
+            view?.showTask(newTask)
         }
     }
     
